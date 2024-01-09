@@ -1,5 +1,7 @@
 import java.lang.Math.pow
+import javax.swing.MutableComboBoxModel
 import kotlin.math.pow
+import kotlin.time.times
 
 //U1: 4, 6, 12, 15, 18, 20, 21, 22, 24, 25, 26 y 27.
 
@@ -661,3 +663,167 @@ fun listas13(){
 
     //No se como va la desviacion tipica :)
 }
+
+
+//3, 5, 6, 7, 8, 10 y 11.
+fun diccionario03(){
+    // Escribir un programa que guarde en un diccionario los precios de las frutas de la tabla, pregunte al usuario por una fruta, un número de kilos y muestre por pantalla el precio de ese número de kilos de fruta. Si la fruta no está en el diccionario debe mostrar un mensaje informando de ello.
+
+    val diccionario = mutableMapOf("Plátano" to 1.35, "Manzana" to 0.80, "Pera" to  0.85, "Naranja" to 0.70)
+    var todo_ok = true
+
+    while (todo_ok){
+
+        print("Que fruta desea de la lista $diccionario -> ")
+        val fruta = readln().capitalize().trim()
+        if (fruta in diccionario){
+            print("Cuantos kg de $fruta quieres? ")
+            val kg= readln().toDouble()
+            val precio = kg * diccionario[fruta]!!
+
+            println("El precio de los $kg de $fruta son: $precio€")
+        }
+        if (fruta !in diccionario) {
+            println("Error, escoja una fruta de la lista")
+            todo_ok = false
+        }
+    }
+}
+
+fun diccionario05(){
+    //Escribir un programa que almacene el diccionario con los créditos de las asignaturas de un curso {'Matemáticas': 6, 'Física': 4, 'Química': 5} y después muestre por pantalla los créditos de cada asignatura en el formato <asignatura> tiene <créditos> créditos, donde <asignatura> es cada una de las asignaturas del curso, y <créditos> son sus créditos. Al final debe mostrar también el número total de créditos del curso.
+    val asignaturas = mutableMapOf("Matematicas" to 6, "Fisica" to 4, "Quimica" to 5)
+    val creditosTotal = asignaturas.values.sum()
+
+    for ((asignatura, creditos) in asignaturas){
+        println("$asignatura tiene $creditos creditos")
+    }
+    println("Y el total de creditos es $creditosTotal")
+
+}
+
+fun diccionario06(){
+    //Escribir un programa que cree un diccionario vacío y lo vaya llenado con información sobre una persona (por ejemplo nombre, edad, sexo, teléfono, correo electrónico, etc.) que se le pida al usuario. Cada vez que se añada un nuevo dato debe imprimirse el contenido del diccionario.
+    val diccionarioVacio = mutableMapOf<String, Any>()
+    var todo_ok = true
+
+    while (todo_ok){
+        print("Quiere introducir un dato? (s/n) ->")
+        val respuesta = readln().toLowerCase()
+
+        if (respuesta != "s" && respuesta!="si"){
+            println("Saliendo...")
+            todo_ok = false
+        }
+        else{
+            print("Que deseas añadir? -> ")
+            val dato = readln()
+            print("introduzca el dato-> ")
+            val añadir = readln()
+            diccionarioVacio[dato] = añadir
+            println(diccionarioVacio)
+
+        }
+    }
+}
+
+fun diccionario07(){
+    //Escribir un programa que cree un diccionario simulando una cesta de la compra. El programa debe preguntar el artículo y su precio y añadir el par al diccionario, hasta que el usuario decida terminar. Después se debe mostrar por pantalla la lista de la compra y el coste total, con el siguiente formato
+    val listaCompra = mutableMapOf<String,Double>()
+    var todoOk= true
+
+    while (todoOk){
+        print("Desea añadir algún producto a la lista? (s/n)-> ")
+        val respuesta = readln().toLowerCase().trim()
+
+        if (respuesta != "s" && respuesta != "si"){
+            println("Saliendo...")
+            todoOk=false
+        }
+        else{
+            print("Que producto desea añadir? -> ")
+            val producto = readln().capitalize()
+
+            print("Cuanto vale $producto?-> ")
+            val precio = readln().toDouble()
+
+            listaCompra[producto] = precio
+
+
+        }
+    }
+    val total = listaCompra.values.sum()
+    println("Lista de la compra: $listaCompra, precio total a pagar: $total€ ")
+}
+
+fun diccionario08(){
+    //Escribir un programa que cree un diccionario de traducción español-inglés. El usuario introducirá las palabras en español e inglés separadas por dos puntos, y cada par <palabra>:<traducción> separados por comas. El programa debe crear un diccionario con las palabras y sus traducciones. Después pedirá una frase en español y utilizará el diccionario para traducirla palabra a palabra. Si una palabra no está en el diccionario debe dejarla sin traducir.
+    val traducido = mutableMapOf("mesa" to "table", "la" to "the", "limpia" to "clean", "grande" to "big", "caro" to "expensive")
+    val usuario = mutableMapOf<String,String>()
+    val listaAtraducir = mutableListOf<String>()
+
+    print("Introduzca una frase a traducir-> ")
+    val frase = readln().toString().toLowerCase()
+
+    //if (frase == traducido.keys){
+
+
+
+}
+
+fun diccionario10(diccionarioInterior: MutableMap<String,Any>){
+    //Gestion de la base de datos, diccionario dentro de diccionario
+    val diccionarioNif = mutableMapOf<Int, MutableMap<String,Any>>()
+
+    print("Que desea hacer-> ")
+    println("(1) Añadir cliente, (2) Eliminar cliente, (3) Mostrar cliente, (4) Listar todos los clientes, (5) Listar clientes preferentes, (6) Terminar.")
+    val opcion = readln().toInt()
+    when (opcion){
+        1 -> añadirCliente(diccionarioNif)
+    }
+
+}
+
+fun añadirCliente(diccionarioNif: MutableMap<Int, MutableMap<String, Any>>): MutableMap<String,Any>{
+
+    val diccionarioInterior = mutableMapOf<String, Any>()
+
+        println("Introduzca los siguientes datos: ")
+        print("NIF-> ")
+        val nif= readln().toInt()
+        diccionarioNif[nif]
+
+
+        print("Nombre-> ")
+        val nombre = readln()
+        diccionarioInterior["Nombre"]= nombre
+
+        print("Direccion-> ")
+        val direccion = readln()
+        diccionarioInterior["Direccion"]= direccion
+
+        print("Telefono-> ")
+        val telefono = readln()
+        if (telefono.length > 9 ){
+            println("ERROR, introduzca un numero correcto")
+        }else{
+            diccionarioInterior["Telefono"] = telefono
+        }
+
+        print("Correo-> ")
+        val correo = readln()
+        diccionarioInterior["Correo"] = correo
+
+        print("Eres cliente preferente? (s/n) ")
+        val preferente = readln().toLowerCase()
+        if (preferente =="s" && preferente =="si"){
+            diccionarioInterior["Preferente"] = true
+        }else{
+            diccionarioInterior["Preferente"] = false
+        }
+        println("$diccionarioInterior")
+
+    return diccionarioInterior
+}
+
+

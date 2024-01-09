@@ -1,4 +1,4 @@
-//fun main() {
+fun main() {
     //UNIDAD 1
     //ejercicio4()
     //ejercicio6()
@@ -42,7 +42,15 @@
     //listas08()
     //listas09(ACABAR)
     //listas10()
-//}
+
+    //diccionario03()
+    //diccionario05()
+    //diccionario06()
+    //diccionario07()
+    //diccionario08(MIRAR)
+    diccionario10(diccionarioInterior = MutableMap<String,Any> )???
+
+}
 
 
 
@@ -53,7 +61,7 @@
 
 
 
-
+/*
 fun main() {
 
     var op: Int
