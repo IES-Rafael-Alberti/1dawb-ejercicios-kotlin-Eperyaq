@@ -771,26 +771,30 @@ fun diccionario08(){
 
 }
 
-fun diccionario10(diccionarioInterior: MutableMap<String,Any>){
+fun diccionario10(){
     //Gestion de la base de datos, diccionario dentro de diccionario
-    val diccionarioNif = mutableMapOf<Int, MutableMap<String,Any>>()
-
+    val diccionarioNif = mutableMapOf<Any, MutableMap<String,Any>>()
     print("Que desea hacer-> ")
     println("(1) Añadir cliente, (2) Eliminar cliente, (3) Mostrar cliente, (4) Listar todos los clientes, (5) Listar clientes preferentes, (6) Terminar.")
-    val opcion = readln().toInt()
-    when (opcion){
-        1 -> añadirCliente(diccionarioNif)
-    }
+    var opcion = readln().toInt()
+    while (opcion in 1..5) {
 
+        println("(1) Añadir cliente, (2) Eliminar cliente, (3) Mostrar cliente, (4) Listar todos los clientes, (5) Listar clientes preferentes, (6) Terminar.")
+        opcion = readln().toInt()
+        when (opcion) {
+            1 -> añadirCliente(diccionarioNif)
+            2 -> println(diccionarioNif)
+        }
+    }
 }
 
-fun añadirCliente(diccionarioNif: MutableMap<Int, MutableMap<String, Any>>): MutableMap<String,Any>{
+fun añadirCliente(diccionarioNif: MutableMap<Any, MutableMap<String, Any>>): MutableMap<String,Any>{
 
     val diccionarioInterior = mutableMapOf<String, Any>()
 
         println("Introduzca los siguientes datos: ")
         print("NIF-> ")
-        val nif= readln().toInt()
+        val nif= readln().toString()
         diccionarioNif[nif]
 
 
@@ -821,9 +825,29 @@ fun añadirCliente(diccionarioNif: MutableMap<Int, MutableMap<String, Any>>): Mu
         }else{
             diccionarioInterior["Preferente"] = false
         }
-        println("$diccionarioInterior")
 
     return diccionarioInterior
 }
 
 
+
+
+//Conjuntos 1,2,3,4,5,6
+
+
+fun conjuntos01(){
+    //[("Nuria Costa", 5, 12780.78, "Calle Las Flores 355"),
+    // ("Jorge Russo", 7, 699, "Mirasol 218"),
+    // ("Nuria Costa", 7, 532.90, "Calle Las Flores 355"),
+    // ("Julián Rodriguez", 12, 5715.99, "La Mancha 761"),
+    // ("Jorge Russo", 15, 958, "Mirasol 218")]
+
+    val listaCompra= listOf("Nuria Costa", 5, 12780.78, "Calle Las Flores 355","Jorge Russo", 7, 699, "Mirasol 218", "Nuria Costa", 7, 532.90, "Calle Las Flores 355","Julián Rodriguez", 12, 5715.99, "La Mancha 761", "Jorge Russo", 15, 958, "Mirasol 218")
+
+    fun compras(listaCompra: List<Any>){
+
+        listaCompra.forEach { elemento -> elemento }
+
+    }
+
+}

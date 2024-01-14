@@ -48,7 +48,11 @@ fun main() {
     //diccionario06()
     //diccionario07()
     //diccionario08(MIRAR)
-    diccionario10(diccionarioInterior = MutableMap<String,Any> )???
+    //diccionario10(NO SE)
+    //diccionario11(MIRAR SI DA TIEMPO)
+    conjuntos01()
+
+
 
 }
 
