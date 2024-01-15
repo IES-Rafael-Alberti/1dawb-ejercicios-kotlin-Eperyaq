@@ -1,4 +1,4 @@
-fun main() {
+/*fun main() {
     //UNIDAD 1
     //ejercicio4()
     //ejercicio6()
@@ -55,6 +55,7 @@ fun main() {
 
 
 }
+*/
 
 
 
@@ -65,7 +66,6 @@ fun main() {
 
 
 
-/*
 fun main() {
 
     var op: Int
@@ -133,14 +133,17 @@ fun mostrarMenu(tipo: Int) {
                 println("----------------")
                 println("6. EjIterativa 02")
                 println("7. EjIterativa 04")
-                println("7. EjIterativa 06")
-                println("7. EjIterativa 07")
-                println("7. EjIterativa 08")
-                println("7. EjIterativa 13")
-                println("7. EjIterativa 15")
-                println("7. EjIterativa 18")
-                println("7. EjIterativa 19")
-                println("7. EjIterativa 25")
+                println("8. EjIterativa 06")
+                println("9. EjIterativa 07")
+                println("10. EjIterativa 08")
+                println("11. EjIterativa 13")
+                println("12. EjIterativa 15")
+                println("13. EjIterativa 18")
+                println("14. EjIterativa 19")
+                println("15. EjIterativa 25")
+                println("16. Excepciones 02")
+                println("17. Excepciones 03")
+                println("18. Excepciones 04")
 
                 op = pedirOpcion(0, 18)
                 when (op) {
@@ -173,9 +176,17 @@ fun mostrarMenu(tipo: Int) {
                 println("4. Listas 09")
                 println("5. Listas 10")
                 println("6. Listas 13")
-                println("7. Diccionario 3....")
+                println("7. Diccionario 03")
+                println("8. Diccionario 05")
+                println("9. Diccionario 06")
+                println("10. Diccionario 07")
+                println("11. Diccionario 08")
+                println("12. Diccionario 10")
+                println("13. conjuntos 01")
 
-                op = pedirOpcion(0, 6)
+
+
+                op = pedirOpcion(0, 13)
                 when (op) {
                     1 -> listas04()
                     2 -> listas06()
@@ -183,11 +194,21 @@ fun mostrarMenu(tipo: Int) {
                     4 -> listas09()
                     5 -> listas10()
                     6 -> listas13()
+                    7 -> diccionario03()
+                    8 -> diccionario05()
+                    9 -> diccionario06()
+                    10 -> diccionario07()
+                    11 -> diccionario08()
+                    12 -> diccionario10()
+                    13 -> conjuntos01()
+
 
                 }
             }
         }
     } while (op != 0)
+
+
 
 }
 
